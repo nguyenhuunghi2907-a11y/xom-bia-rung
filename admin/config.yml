@@ -1,0 +1,29 @@
+backend:
+  name: git-gateway
+  branch: main
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+publish_mode: simple
+collections:
+  - name: "posts"
+    label: "Bài viết"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Tiêu đề", name: "title", widget: "string" }
+      - { label: "Ngày đăng", name: "date", widget: "datetime" }
+      - { label: "Ảnh đại diện", name: "image", widget: "image", required: false }
+      - { label: "Nội dung (dán nội dung đã soạn sẵn vào đây)", name: "body", widget: "markdown" }
+  - name: "settings"
+    label: "Thông tin chung"
+    files:
+      - label: "Thông tin liên hệ"
+        name: "contact"
+        file: "content/settings.json"
+        fields:
+          - { label: "Tên mô hình", name: "site_name", widget: "string", default: "Xóm Bìa Rừng" }
+          - { label: "Dòng phụ", name: "tagline", widget: "string", default: "Vùng đệm Vườn quốc gia U Minh Thượng" }
+          - { label: "Số điện thoại", name: "phone", widget: "string" }
+          - { label: "Link Zalo / số Zalo", name: "zalo", widget: "string" }
+          - { label: "Địa chỉ", name: "address", widget: "string" }
